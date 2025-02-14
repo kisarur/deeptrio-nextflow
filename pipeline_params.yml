@@ -1,0 +1,9 @@
+samples:
+  - ['family1', 'family1_child', '/path/to/family1_child.bam', 'family1_parent1', '/path/to/family1_parent1.bam', 'family1_parent2', '/path/to/family1_parent2.bam', '/path/to/regions.bed', 'ONT']
+  - ['family2', 'family2_child', '/path/to/family2_child.bam', 'family2_parent1', '/path/to/family2_parent1.bam', 'family2_parent2', '/path/to/family2_parent2.bam', '', 'PACBIO']
+
+ref: '/path/to/reference.fa'
+output_dir: '/path/to/output_dir'
+
+nci_project: 'ab12'
+nci_storage: 'gdata/if89+gdata/ab12'
