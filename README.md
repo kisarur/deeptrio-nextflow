@@ -43,14 +43,14 @@ A case study was conducted using a PacBio dataset with each family member's BAM 
         <tr>
             <td>Original DeepTrio</td>
             <td><code>gpuvolta</code> (48 CPUs, 4 GPUs, 384 GB memory)</td>
-            <td>13:27:29</td>
-            <td>1937.96</td>
+            <td>09:52:07</td>
+            <td>1421.08</td>
         </tr>
         <tr>
             <td><i>deeptrio-nextflow</i></td>
-            <td><code>normalsr</code> (104 CPUs, 500 GB memory) → <code>gpuvolta</code> (12 CPUs, 1 GPU, 96 GB memory) → <code>normalbw</code> (14 CPUs, 128 GB memory) </td>
-            <td>05:22:16</td>
-            <td>825.17</td>
+            <td><code>normalsr</code> (104 CPUs, 500 GB memory) → <code>gpuvolta</code> (12 CPUs, 1 GPU, 96 GB memory) → <code>normal</code> (24 CPUs, 96 GB memory) </td>
+            <td>04:01:28</td>
+            <td>598.79</td>
         </tr>
     </tbody>
 </table>

@@ -81,7 +81,7 @@ process CALL_VARIANTS {
 
 }
 
-process POSTPROCESS_VARIANTS_AND_VCF_STATS_REPORT {
+process POSTPROCESS_VARIANTS {
 
     publishDir "${params.output_dir}/${family_id}/${sample_name}" , mode: 'copy'
 
@@ -98,7 +98,6 @@ process POSTPROCESS_VARIANTS_AND_VCF_STATS_REPORT {
     def gvcf_num_shards = matcher[0][2] as int
     """
     postprocess_variants --ref "${ref}" --sample_name "${sample_name}" --infile "call_variants_output.tfrecord.gz" --nonvariant_site_tfrecord_path "${gvcf_name}@${gvcf_num_shards}.gz" --cpus "${task.cpus}" --outfile "${sample_name}.vcf.gz" --gvcf_outfile "${sample_name}.g.vcf.gz"
-    vcf_stats_report --input_vcf "${sample_name}.vcf.gz" --outfile_base "${sample_name}"
     """
 
 }
@@ -144,6 +143,6 @@ workflow {
     CALL_VARIANTS(ch_call_variants) 
 
     // Run the combined POSTPROCESS_VARIANTS and VCF_STATS_REPORT stages with the outputs of CALL_VARIANTS stage
-    POSTPROCESS_VARIANTS_AND_VCF_STATS_REPORT(ch_ref, CALL_VARIANTS.out)
+    POSTPROCESS_VARIANTS(ch_ref, CALL_VARIANTS.out)
 
 }
